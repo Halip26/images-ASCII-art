@@ -1,7 +1,8 @@
 import PIL.Image
+import sys
 
 img_flag = True
-path = input("Enter the path to the image field : \n")
+path = sys.argv[1]
 
 try:
     img = PIL.Image.open(path)
@@ -29,5 +30,9 @@ ascii_image = [
 ]
 ascii_image = "\n".join(ascii_image)
 
-with open("ascii_image.txt", "w") as f:
+with open("ascii_art_result.txt", "w") as f:
     f.write(ascii_image)
+
+# Membaca isi file "ascii_art_result.txt"
+with open("ascii_art_result.txt", "r") as f:
+    print(f.read())
